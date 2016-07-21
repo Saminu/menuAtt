@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="app">
+<div class="container" ng-controller="Ctrl">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn bg-success" ng-click="addMenu()">Add menu</button>
+            </div>
+            <div class="col-md-6">
+                <label for="category">Category</label>
+                <input id="category" name="category" ng-model="menu.category" type="text">
+                <label for="name">Name</label>
+                <input id="name" name="name" ng-model="menu.name" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="well" ng-repeat="menu in menu_array">
+            <p>
+                <strong class="">{{ menu.Name}}</strong>
+                <strong class="pull-right">{{ menu.Category}}</strong><br>
+                <strong ng-show="menu.Vegetarian" class="pull-right"><i class=" bg-success glyphicon glyphicon-check"></i></strong><br>
+                <button ng-click="removeMenu($index)" class="btn btn-danger pull-right">Delete</button><br>
+                <small>{{ menu.Description }}</small><br>
+                <strong>$ {{ menu.Price }}</strong>
+            </p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script src="libs/angular/angular.js"></script>
+<script src="script/app.js"></script>
+<script src="script/script.js"></script>
+
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
